@@ -1,3 +1,11 @@
+# Installation
+
+## Clone Repo into your home directory
+```
+cd ~/
+git clone git@github.com:heyMP/dotfiles.git --recursive
+```
+
 ## Create Symlinks
 
 ```
