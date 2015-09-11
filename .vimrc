@@ -26,11 +26,10 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 80 characters is
 set textwidth=80
-set colorcolumn=+1
 
 " Numbers
 set number
@@ -67,15 +66,17 @@ autocmd InsertLeave * call ToggleRelativeOn()
 
 " Syntactics
 filetype plugin indent on
-syntax on
 
 " Set the default theme to Monokai-Fefined
-colorscheme Monokai-Refined
-let g:molokai_original = 1
-let g:rehash256 = 1
+colorscheme monokai
+syntax on
 
 " Toggle Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
 
-" Open Nerdtree Tab
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+" Vim Grep
+command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
+
