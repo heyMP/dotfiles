@@ -75,7 +75,7 @@ syntax on
 map <C-n> :NERDTreeToggle<CR>
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
-map  <C-n> :tabnew<CR>
+map  <C-k> :tabnew<CR>
 
 " Vim Grep
 command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
