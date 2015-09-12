@@ -6,7 +6,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
   
   PROMPT='%{$fg[cyan]%}[%m] %n:%c$(git_prompt_info) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
-  RPROMPT="%{$PROMPT_VCS_INFO_COLOR%}"'$vcs_info_msg_1_'"%{$FX[reset]%}"
+  RPROMPT="%{~}"
 
   ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
   ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
