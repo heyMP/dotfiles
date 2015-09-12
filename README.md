@@ -15,3 +15,11 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.viminfo ~/.viminfo
 ```
+
+### Install fonts
+
+From within the `.vim/bundle/fonts` directiory run
+
+```
+bash install.sh
+```

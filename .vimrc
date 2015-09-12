@@ -72,11 +72,16 @@ colorscheme monokai
 syntax on
 
 " Toggle Nerdtree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeMirrorToggle<CR>
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-k> :tabnew<CR>
+let g:nerdtree_tabs_smart_startup_focus = 0
+let g:NERDTreeShowHidden = 1
 
 " Vim Grep
 command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='powerlineish'
