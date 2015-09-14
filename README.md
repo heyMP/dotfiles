@@ -19,12 +19,16 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
 ```
 
-## Make Zsh the default shell
-
+## Insall Zsh and make it the default shell
 ```
+yum install zsh
 chsh -s /bin/zsh
 ```
 
+## Install tmux
+```
+yum install tmux
+```
 
 ## Install fonts
 
