@@ -92,3 +92,7 @@ fi
 
 # Display the hostname 
 HOSTNAME=$HOST
+
+# Fix the color in tmux
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
