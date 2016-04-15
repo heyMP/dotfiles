@@ -17,6 +17,7 @@ ln -s ~/dotfiles/.viminfo ~/.viminfo
 ln -s ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
+ln -s ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
 ## Insall Zsh and make it the default shell
