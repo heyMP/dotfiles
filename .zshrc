@@ -59,6 +59,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/dotfiles/zsh-custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Source global definitions
 if [ -f ~/.bashrc ]; then
