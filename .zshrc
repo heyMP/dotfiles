@@ -97,3 +97,28 @@ HOSTNAME=$HOST
 # Fix the color in tmux
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
+
+# z
+# Move next only if `homebrew` is installed
+if command -v brew >/dev/null 2>&1; then
+    # Load rupa's z if installed
+    [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
+
+# Keep computer awake for one hour
+alias stayawake="caffeinate -u -t 3600"
+
+# Ranger
+alias ra="ranger"
+
+# Archey, display specs
+alias specs="archey"
+
+# Weather
+alias weather="curl http://wttr.in"
+
+# Chrome
+alias chrome-testing='open -a Google\ Chrome --args --disable-web-security'
+
+# ngrok
+alias ngrok="/Applications/ngrok"
