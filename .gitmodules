@@ -55,3 +55,6 @@
 [submodule "zsh-custom/plugins/zsh-autosuggestions"]
 	path = zsh-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git

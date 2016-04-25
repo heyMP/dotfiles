@@ -9,15 +9,15 @@ git clone git@github.com:heyMP/dotfiles.git --recursive
 ## Create Symlinks
 
 ```
-ln -s ~/dotfiles/.vim ~/.vim
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.viminfo ~/.viminfo
-ln -s ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
-ln -s ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
+ln -sf ~/dotfiles/.vim ~/.vim
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.viminfo ~/.viminfo
+ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
+ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
+ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
 ## Insall Zsh and make it the default shell
