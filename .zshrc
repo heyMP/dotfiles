@@ -122,3 +122,6 @@ alias chrome-testing='open -a Google\ Chrome --args --disable-web-security'
 
 # ngrok
 alias ngrok="/Applications/ngrok"
+
+# Mac
+alias copypath="pwd | pbcopy"
