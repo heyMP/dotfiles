@@ -23,10 +23,13 @@ ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ## Insall Zsh and make it the default shell
 ```
 yum install zsh
-or
-apt-get install zsh
-
 chsh -s /bin/zsh
+```
+
+## Install zsh on Ubuntu
+```
+apt-get install zsh
+zsh
 ```
 
 ## Install tmux
