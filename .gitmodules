@@ -58,3 +58,9 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/vim-twig"]
+	path = .vim/bundle/vim-twig
+	url = https://github.com/evidens/vim-twig.git
+[submodule ".vim/bundle/auto_mkdir"]
+	path = .vim/bundle/auto_mkdir
+	url = https://github.com/DataWraith/auto_mkdir.git
