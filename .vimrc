@@ -17,7 +17,7 @@ set autoread      " Reload files changted outside vim
 
 " Allow usage of mouse in iTerm
 set ttyfast
-set mouse=a
+set mouse=v
 set ttymouse=xterm2
 
 " Softtabs, 2 spaces
@@ -68,9 +68,12 @@ autocmd InsertLeave * call ToggleRelativeOn()
 " Syntactics
 filetype plugin indent on
 
-" Set the default theme to Monokai-Fefined
+" Set the default theme to Monokai-Refined
+set t_Co=256
 colorscheme monokai
-syntax on
+syntax enable
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 " Toggle Nerdtree
 map <C-n> :NERDTreeMirrorToggle<CR>
@@ -101,3 +104,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Set syntax for specific file types
 au BufNewFile,BufRead *.theme set filetype=php
+
+" Paste
+set paste
