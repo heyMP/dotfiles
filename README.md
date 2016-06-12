@@ -20,6 +20,19 @@ ln -sf ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
 ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
+## Install DrupalVim
+```
+drush dl vimrc
+ln -s ~/.drush/vimrc/bundle/vim-plugin-for-drupal ~/.vim/bundle
+```
+
+Load helper tags
+```
+vim
+:Helptags
+:help drupal
+```
+
 ## Insall Zsh and make it the default shell
 ```
 yum install zsh
