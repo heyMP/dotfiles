@@ -83,9 +83,6 @@ map  <C-k> :tabnew<CR>
 let g:nerdtree_tabs_smart_startup_focus = 0
 let g:NERDTreeShowHidden = 1
 
-" Vim Grep
-command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
-
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -101,9 +98,6 @@ let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" Set syntax for specific file types
-au BufNewFile,BufRead *.theme set filetype=php
 
 " Paste
 set paste
