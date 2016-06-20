@@ -82,6 +82,7 @@ map  <C-h> :tabp<CR>
 map  <C-k> :tabnew<CR>
 let g:nerdtree_tabs_smart_startup_focus = 0
 let g:NERDTreeShowHidden = 1
+let NERDTreeDirArrows=0
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
