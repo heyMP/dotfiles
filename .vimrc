@@ -70,10 +70,8 @@ filetype plugin indent on
 
 " Set the default theme to Monokai-Refined
 set t_Co=256
-colorscheme monokai
-syntax enable
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+syntax on
+colorscheme dracula
 
 " Toggle Nerdtree
 map <C-n> :NERDTreeMirrorToggle<CR>

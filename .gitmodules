@@ -64,3 +64,9 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/dracula-theme"]
+	path = .vim/bundle/dracula-theme
+	url = https://github.com/dracula/vim.git
+[submodule "dracula.zsh-theme"]
+	path = dracula.zsh-theme
+	url = https://github.com/dracula/zsh.git

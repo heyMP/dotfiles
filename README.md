@@ -16,7 +16,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.viminfo ~/.viminfo
 ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/heymp.zsh-theme ~/dotfiles/.oh-my-zsh/themes/heymp.zsh-theme
+ln -s ~/dotfiles/dracula.zsh-theme/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
