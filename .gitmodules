@@ -61,9 +61,6 @@
 [submodule ".vim/bundle/auto_mkdir"]
 	path = .vim/bundle/auto_mkdir
 	url = https://github.com/DataWraith/auto_mkdir.git
-[submodule ".vim/bundle/YouCompleteMe"]
-	path = .vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule ".vim/bundle/dracula-theme"]
 	path = .vim/bundle/dracula-theme
 	url = https://github.com/dracula/vim.git
