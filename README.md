@@ -58,3 +58,8 @@ From within the `.vim/bundle/fonts` directiory run
 bash install.sh
 ```
 
+## Updating Submodules
+```
+~/dotfiles
+git submodule update --init --recursive
+```
