@@ -36,14 +36,6 @@ set textwidth=80
 set number
 set numberwidth=5
 
-""" SYSTEM CLIPBOARD COPY & PASTE SUPPORT
-set pastetoggle=<F2> "F2 before pasting to preserve indentation
-"Copy paste to/from clipboard
-vnoremap <C-c> "*y
-map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
-map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-
 " Scrolling
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
