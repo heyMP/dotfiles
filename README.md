@@ -7,7 +7,6 @@ git clone git@github.com:heyMP/dotfiles.git --recursive
 ```
 
 ## Create Symlinks
-
 ```
 ln -sf ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -18,6 +17,12 @@ ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
+```
+
+# Add Server Variable
+```
+echo 'ZSH_PRODUCTION_ENV="TRUE"' > ~/.zshenv
+source ~/.zshrc
 ```
 
 ## Install DrupalVim
@@ -53,18 +58,8 @@ yum install tmux
 ## Install fonts
 
 From within the `.vim/bundle/fonts` directiory run
-
 ```
 bash install.sh
-```
-
-## Set Server Environment
-
-If installing on a production server add the following to your .bashrc
-
-```
-# Server Environment
-export ZSH_PRODUCTION_ENV="TRUE"
 ```
 
 ## Updating Submodules
