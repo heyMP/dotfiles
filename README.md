@@ -64,7 +64,7 @@ If installing on a production server add the following to your .bashrc
 
 ```
 # Server Environment
-export ZSH_PRODUCTION_ENV=""
+export ZSH_PRODUCTION_ENV="TRUE"
 ```
 
 ## Updating Submodules
