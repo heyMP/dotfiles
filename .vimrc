@@ -1,3 +1,4 @@
+filetype off
 " Let pathogen install plugins
 execute pathogen#infect()
 
