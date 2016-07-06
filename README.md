@@ -58,6 +58,15 @@ From within the `.vim/bundle/fonts` directiory run
 bash install.sh
 ```
 
+## Set Server Environment
+
+If installing on a production server add the following to your .bashrc
+
+```
+# Server Environment
+export ZSH_PRODUCTION_ENV=""
+```
+
 ## Updating Submodules
 ```
 ~/dotfiles
