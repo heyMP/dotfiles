@@ -19,9 +19,12 @@ ln -sf ~/dotfiles/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
-# Add Server Variable
+# Add Server Variables
 ```
-echo 'ZSH_PRODUCTION_ENV="TRUE"' > ~/.zshenv
+echo 'ZSH_SERVER_NAME="MYSERVER"
+ZSH_SERVER_COLOR="yellow"
+' > ~/.zshenv
+source ~/.zshenv
 source ~/.zshrc
 ```
 
