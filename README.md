@@ -67,3 +67,8 @@ bash install.sh
 ~/dotfiles
 git submodule update --init --recursive
 ```
+
+## httpie
+
+If doing REST development install httpie from:
+https://github.com/jkbrzt/httpie
