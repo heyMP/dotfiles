@@ -93,3 +93,8 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Paste
 set paste
+
+" Added a debugger.  type ,hi and get the actual vim highlight name
+map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
