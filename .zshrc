@@ -125,3 +125,11 @@ alias ngrok="/Applications/ngrok"
 
 # Mac
 alias copypath="pwd | pbcopy"
+
+# Add Vim navigation to bash
+bindkey '^W' forward-word
+bindkey '^B' backward-word
+bindkey '^H' backward-char
+bindkey '^L' forward-char
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
