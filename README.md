@@ -31,7 +31,7 @@ source ~/.zshrc
 ## Install DrupalVim
 ```
 drush dl vimrc
-ln -s ~/.drush/vimrc/bundle/vim-plugin-for-drupal ~/.vim/bundle
+ln -sf ~/.drush/vimrc/bundle/vim-plugin-for-drupal ~/.vim/bundle/vim-plugin-for-drupal
 ```
 
 Load helper tags
