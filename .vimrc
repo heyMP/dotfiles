@@ -72,6 +72,7 @@ map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-k> :tabnew<CR>
 let g:nerdtree_tabs_smart_startup_focus = 0
+let NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowHidden = 1
 let NERDTreeDirArrows=0
 
@@ -91,8 +92,26 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-" Paste
-set paste
+" Paste properly without using :set paste
+" http://superuser.com/questions/437730/always-use-set-paste-is-it-a-good-idea
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 
 " Added a debugger.  type ,hi and get the actual vim highlight name
 map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
