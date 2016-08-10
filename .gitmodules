@@ -73,3 +73,9 @@
 [submodule ".vim/bundle/tlib_vim"]
 	path = .vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/tmux-yank"]
+	path = .vim/bundle/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
+[submodule ".vim/bundle/tmux-copycat"]
+	path = .vim/bundle/tmux-copycat
+	url = https://github.com/tmux-plugins/tmux-copycat

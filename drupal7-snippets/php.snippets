@@ -1,0 +1,12 @@
+snippet markup
+	try {
+		${2}
+	}
+	catch (EntityMetadataWrapperException $exc) {
+		watchdog(
+			'${1}',
+			'EntityMetadataWrapper exception in %function() @trace',
+			array('%function' => __FUNCTION__, '@trace' => $exc->getTraceAsString()),
+			WATCHDOG_ERROR
+		);
+	}

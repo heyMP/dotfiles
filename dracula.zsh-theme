@@ -30,7 +30,8 @@ else
 fi
 
 
-PROMPT='${ret_status} ${server_env_color} ${server_env_name} as %n %{$fg_bold[green]%}%p %{$fg_bold[blue]%}%c $(git_prompt_info)% %{$reset_color%} '
+PROMPT='${ret_status} ${server_env_color} ${server_env_name} as %n %{$fg_bold[green]%}%p %{$fg_bold[blue]%}%c $(git_prompt_info)% %{$reset_color%} 
+   '
 
 ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
 ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}✗ "
