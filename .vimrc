@@ -18,7 +18,7 @@ set autoread      " Reload files changted outside vim
 
 " Allow usage of mouse in iTerm
 set ttyfast
-set mouse=v
+set mouse=n
 set ttymouse=xterm2
 
 " Softtabs, 2 spaces
@@ -117,3 +117,16 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" GitGutter
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterRevertHunk
+
+"Code Folding
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" Auto Remove white spaces
+autocmd BufWritePre * %s/\s\+$//e
