@@ -71,6 +71,7 @@ map <C-n> :NERDTreeMirrorToggle<CR>
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-k> :tabnew<CR>
+nmap <C-m> :NERDTreeFind<CR>
 let g:nerdtree_tabs_smart_startup_focus = 0
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowHidden = 1
