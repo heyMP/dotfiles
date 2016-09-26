@@ -85,9 +85,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 
 " Allow NerdCommenter to execute in insert mode
-imap <D-/> <esc>,c<space> 
+imap <D-/> <esc>,c<space>
 
-" Multiple Cursors 
+" Multiple Cursors
 let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
