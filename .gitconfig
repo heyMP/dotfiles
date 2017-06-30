@@ -16,5 +16,10 @@
 	trustExitCode = true
 [core]
 	autocrlf = input
+	editor = /usr/bin/vim
 [push]
 	default = matching
+[github]
+	user = heymp
+[ghi]
+	token = !security find-internet-password -a heymp -s github.com -l 'ghi token' -w

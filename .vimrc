@@ -19,7 +19,7 @@ set autoread      " Reload files changted outside vim
 " Allow usage of mouse in iTerm
 set ttyfast
 set mouse=n
-set ttymouse=xterm2
+" set ttymouse=iterm2
 
 " Softtabs, 2 spaces
 set tabstop=2

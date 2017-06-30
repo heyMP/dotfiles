@@ -65,6 +65,10 @@ source $HOME/dotfiles/zsh-custom/plugins/zsh-autosuggestions/zsh-autosuggestions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
+# Source global definitions
+if [ -f ~/.bash_profile ]; then
+	. ~/.bash_profile
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -91,7 +95,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Display the hostname 
+# Display the hostname
 HOSTNAME=$HOST
 
 # Fix the color in tmux
@@ -126,6 +130,11 @@ alias ngrok="/Applications/ngrok"
 # Mac
 alias copypath="pwd | pbcopy"
 
+# Wego
+alias wego="~/GO/bin/wego"
+
+alias lrndev="sh ~/polymer/lrndeveloper/lrndeveloper/lrndev.sh"
+
 # Add Vim navigation to bash
 bindkey '^W' forward-word
 bindkey '^B' backward-word
@@ -133,3 +142,12 @@ bindkey '^H' backward-char
 bindkey '^L' forward-char
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# Automatically added by Platform.sh CLI installer
+export PATH="/Users/scienceonlineed/.platformsh/bin:$PATH"
+. '/Users/scienceonlineed/.platformsh/shell-config.rc' 2>/dev/null
+
+export PATH="$HOME/.yarn/bin:$PATH"
