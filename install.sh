@@ -17,6 +17,9 @@ bash ./scripts/install-tmux.sh
 # Ack
 bash ./scripts/install-ack.sh
 
+# iterm2 Shell Integration
+curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
+
 # echo 'Add Server Variables'
 # echo 'ZSH_SERVER_NAME="MYSERVER"
 # ZSH_SERVER_COLOR="yellow"
