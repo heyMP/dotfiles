@@ -50,7 +50,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose)
 
 # User configuration
 
@@ -133,7 +133,7 @@ alias copypath="pwd | pbcopy"
 # Wego
 alias wego="~/GO/bin/wego"
 
-alias lrndev="sh ~/polymer/lrndeveloper/lrndeveloper/lrndev.sh"
+alias lrndev="bash ~/polymer/lrndeveloper/lrndeveloper/lrndev.sh"
 
 # Add Vim navigation to bash
 bindkey '^W' forward-word
@@ -144,10 +144,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-# Automatically added by Platform.sh CLI installer
-export PATH="/Users/scienceonlineed/.platformsh/bin:$PATH"
-. '/Users/scienceonlineed/.platformsh/shell-config.rc' 2>/dev/null
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.yarn/bin:$PATH"
