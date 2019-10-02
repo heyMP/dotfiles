@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 #
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dracula"
+ZSH_THEME="heymp"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,10 +50,9 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose zsh-syntax-highlighting vi-mode z)
 
 # User configuration
-
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -142,6 +141,13 @@ bindkey '^H' backward-char
 bindkey '^L' forward-char
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+
+# Add Vi mode
+bindkey -v
+
+# How to cycle through reverse-i-search in BASH?
+# https://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
+# stty -ixo
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export NVM_DIR="$HOME/.nvm"

@@ -8,7 +8,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.viminfo ~/.viminfo
 ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
+ln -sf ~/dotfiles/zsh-custom ~/dotfiles/.oh-my-zsh/custom
 
 # tmux
 bash ./scripts/install-tmux.sh
@@ -35,9 +35,10 @@ curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 # sudo yum install zsh
 # sudo chsh -s /bin/zsh
 
-# echo 'Install fonts'
-# cd ~/.vim/bundle/fonts/
-# sudo bash install.sh
+echo 'Install fonts'
+cd ~/.vim/bundle/fonts/
+sudo bash install.sh
+echo 'If you use iTerm2 then you need to change font settings: https://github.com/powerline/fonts/issues/44'
 
 echo 'Updating Submodules'
 echo '~/dotfiles
