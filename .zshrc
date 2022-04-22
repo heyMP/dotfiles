@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 #
 # time that oh-my-zsh is loaded.
-ZSH_THEME="heymp"
+ZSH_THEME="dracula"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,7 +50,7 @@ ZSH_THEME="heymp"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose zsh-syntax-highlighting vi-mode z)
+# plugins=(git docker docker-compose vi-mode z)
 
 # User configuration
 
@@ -111,9 +111,6 @@ fi
 # Keep computer awake for one hour
 alias stayawake="caffeinate -u -t 3600"
 
-# Ranger
-alias ra="ranger"
-
 # Archey, display specs
 alias specs="archey"
 
@@ -123,16 +120,8 @@ alias weather="curl http://wttr.in"
 # Chrome
 alias chrome-testing='open -a Google\ Chrome --args --disable-web-security'
 
-# ngrok
-alias ngrok="/Applications/ngrok"
-
 # Mac
 alias copypath="pwd | pbcopy"
-
-# Wego
-alias wego="~/GO/bin/wego"
-
-alias lrndev="bash ~/polymer/lrndeveloper/lrndeveloper/lrndev.sh"
 
 # Add Vim navigation to bash
 bindkey '^W' forward-word
@@ -143,14 +132,26 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 # Add Vi mode
-bindkey -v
+# bindkey -v
+
+# control space to accept auto suggestion
+bindkey '^ ' autosuggest-accept
 
 # How to cycle through reverse-i-search in BASH?
 # https://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
 # stty -ixo
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+## test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Load NVM async so it doesn't slow down zsh
+# https://github.com/eudika/prezto/commit/40100534c1ab5e2303c598d7b4c0ac3cad689bfe 
+path=("$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | sort -V | tail -n1)/bin/": $path)
+# Load NVM lazily.
+nvm() {
+  unset nvm;
+  # This line is very slow.
+  source "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
 
 export PATH="$HOME/.yarn/bin:$PATH"

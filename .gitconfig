@@ -17,6 +17,7 @@
 [core]
 	autocrlf = input
 	editor = /usr/bin/vim
+	excludesfile = /Users/michael/.gitignore_global
 [push]
 	default = matching
 [github]

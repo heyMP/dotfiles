@@ -64,7 +64,10 @@ filetype plugin indent on
 " Set the default theme to Monokai-Refined
 set t_Co=256
 syntax on
+packadd! dracula
+syntax enable
 colorscheme dracula
+
 
 " Toggle Nerdtree
 map <C-n> :NERDTreeMirrorToggle<CR>
