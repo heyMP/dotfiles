@@ -10,8 +10,17 @@ bash install.sh
 
 # Manual Install
 
+## Install NEOVIM
+
+Install nvim via brew or preferred method.
+
+Based on lunarvim's nvim from scratch repo
+https://github.com/LunarVim/Neovim-from-scratch
+
+
 ## Create Symlinks
 ```
+ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
