@@ -134,3 +134,7 @@ set foldlevel=1         "this is just what i use
 
 " Auto Remove white spaces
 autocmd BufWritePre * %s/\s\+$//e
+
+" Show hidden files  in NERDTree
+" https://stackoverflow.com/questions/5057359/how-can-i-show-hidden-files-starting-with-period-in-nerdtree#:~:text=Press%20I%20(%20Shift%20%2B%20i%20),in%20the%20NERDTree%20explorer%20window.&text=For%20more%20detail%2C%20access%20the,and%20search%20for%20%22hidden%22.&text=And%20to%20hide%20hidden%20files,NERDTreeShowHidden%3D0%20into%20your%20vimrc.
+let NERDTreeShowHidden=1
