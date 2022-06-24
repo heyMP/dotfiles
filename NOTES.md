@@ -67,13 +67,23 @@ https://stackoverflow.com/questions/1305853/how-can-i-make-my-match-non-greedy-i
 
 ## Refresh current file
 
+```vim
 :e
-
+```
 
 
 https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file
 
 ## Swap Panes
 
+```vim
 prefix + ctrl + o
 r
+```
+
+## Open multiple buffers at once
+
+```vim
+:next elements/rh-footer/*.css
+```
+
