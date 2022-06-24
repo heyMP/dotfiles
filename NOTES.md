@@ -81,9 +81,33 @@ prefix + ctrl + o
 r
 ```
 
+## Search and replace with quickfix
+
+Search
+
+```vim
+:vim /[0-9]px;/g elements/rh-footer/*.css
+```
+
+Add to quickfix
+
+```vim
+:copen
+```
+
 ## Open multiple buffers at once
 
 ```vim
 :next elements/rh-footer/*.css
 ```
 
+## Edit multiple buffers at once
+
+Use the command :
+
+```vim
+bufdo s/string/replacement/g 
+```
+bufdo : action on all buffers .
+s : replacing
+g : globally
