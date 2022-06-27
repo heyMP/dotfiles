@@ -1,5 +1,9 @@
 #!/bin/sh
 
+Install neovim from these directions:
+
+https://github.com/LunarVim/nvim-basic-ide
+
 echo 'Create Symlinks'
 ln -sf ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -10,6 +14,7 @@ ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.taskrc ~/.taskrc
 ln -sf ~/dotfiles/zsh-custom ~/dotfiles/.oh-my-zsh/custom
+ln -sf ~/dotfiles/nvim-basic-ide ~/.config/nvim
 
 # tmux
 bash ./scripts/install-tmux.sh

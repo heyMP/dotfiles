@@ -88,3 +88,6 @@
 [submodule ".oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh"]
 	path = .oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
 	url = https://github.com/sroze/docker-compose-zsh-plugin.git
+[submodule "nvim-basic-ide"]
+	path = nvim-basic-ide
+	url = https://github.com/LunarVim/nvim-basic-ide
