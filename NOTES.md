@@ -94,6 +94,13 @@ Add to quickfix
 ```vim
 :copen
 ```
+## Add files to quickfix with Telescope
+
+From `Telescope live_grep`, make your search then add the list to quickfix using
+
+```bash
+<C-q>
+```
 
 ## Open multiple buffers at once
 
