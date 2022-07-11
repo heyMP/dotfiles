@@ -118,3 +118,15 @@ bufdo s/string/replacement/g
 bufdo : action on all buffers .
 s : replacing
 g : globally
+
+## nvim-tree
+
+`g?` toggle_help
+
+https://github.com/kyazdani42/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt#L944
+
+## Tmux
+
+### Swap Panes
+
+Tmux uses the keybinding 'Prefix' followed by 'Ctrl+o' to cycle around the panes. When you use this key-binding for the first time, it moves the pane in one position clockwise.
