@@ -62,9 +62,9 @@ const rules: KarabinerRules[] = [
       {
         description: "Change right_command+hjkl to arrow keys",
         from: {
-          key_code: "h",
+          key_code: "s",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -77,9 +77,9 @@ const rules: KarabinerRules[] = [
       },
       {
         from: {
-          key_code: "j",
+          key_code: "d",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -92,9 +92,9 @@ const rules: KarabinerRules[] = [
       },
       {
         from: {
-          key_code: "k",
+          key_code: "e",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -107,9 +107,9 @@ const rules: KarabinerRules[] = [
       },
       {
         from: {
-          key_code: "l",
+          key_code: "f",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
