@@ -85,6 +85,9 @@
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/vim-visual-multi"]
+	path = .vim/bundle/vim-visual-multi
+	url = https://github.com/mg979/vim-visual-multi 
 [submodule ".oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh"]
 	path = .oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
 	url = https://github.com/sroze/docker-compose-zsh-plugin.git

@@ -64,7 +64,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "h",
           modifiers: {
-            mandatory: ["right_command"],
+            mandatory: ["left_control"],
             optional: ["any"],
           },
         },
@@ -79,7 +79,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "j",
           modifiers: {
-            mandatory: ["right_command"],
+            mandatory: ["left_control"],
             optional: ["any"],
           },
         },
@@ -94,7 +94,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "k",
           modifiers: {
-            mandatory: ["right_command"],
+            mandatory: ["left_control"],
             optional: ["any"],
           },
         },
@@ -109,7 +109,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "l",
           modifiers: {
-            mandatory: ["right_command"],
+            mandatory: ["left_control"],
             optional: ["any"],
           },
         },
@@ -119,25 +119,6 @@ const rules: KarabinerRules[] = [
           },
         ],
         type: "basic",
-      },
-      {
-        type: "basic",
-        description: "Escape -> grave_accent_and_tilde (`)",
-        from: {
-          key_code: "escape",
-        },
-        to: [
-          {
-            key_code: "grave_accent_and_tilde",
-            modifiers: ["left_command", "left_control", "left_option"],
-          },
-        ],
-        // leave blank so we don't get double keys
-        to_if_alone: [
-          {
-            key_code: "grave_accent_and_tilde",
-          },
-        ],
       },
     ],
   },
@@ -182,7 +163,16 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      y: {
+      k: {
+        description: "Window: Right Half",
+        to: [
+          {
+            key_code: "right_arrow",
+            modifiers: ["right_option", "right_control"],
+          },
+        ],
+      },
+      j: {
         description: "Window: Left Half",
         to: [
           {
@@ -191,21 +181,12 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      o: {
-        description: "Window: Right Half",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_option", "left_command"],
-          },
-        ],
-      },
       f: {
         description: "Window: Full Screen",
         to: [
           {
-            key_code: "keypad_enter",
-            modifiers: ["right_option", "left_command"],
+            key_code: "return_or_enter",
+            modifiers: ["right_option", "right_control"],
           },
         ],
       },
@@ -309,11 +290,11 @@ const rules: KarabinerRules[] = [
       },
       // Magicmove via homerow.app
       m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
+        to: [{ key_code: "0", modifiers: ["right_control"] }],
       },
       // Scroll mode via homerow.app
       s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
+        to: [{ key_code: "equal_sign", modifiers: ["right_control"] }],
       },
     },
   }),
@@ -332,6 +313,18 @@ fs.writeFileSync(
           complex_modifications: {
             rules,
           },
+          simple_modifications: [
+            {
+              from: {
+                key_code: "escape",
+              },
+              to: [
+                {
+                  key_code: "grave_accent_and_tilde",
+                },
+              ],
+            },
+          ],
         },
       ],
     },

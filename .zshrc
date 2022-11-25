@@ -123,6 +123,9 @@ alias chrome-testing='open -a Google\ Chrome --args --disable-web-security'
 # Mac
 alias copypath="pwd | pbcopy"
 
+# Mac
+alias datetime="date +'%d-%m-%Y-%T'"
+
 # Add Vim navigation to bash
 bindkey '^W' forward-word
 bindkey '^B' backward-word
