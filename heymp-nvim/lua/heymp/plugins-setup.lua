@@ -44,12 +44,18 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
+  use("Mofiqul/dracula.nvim") -- Dracula 🧛
 
 	-- Vim
 	use { "szw/vim-maximizer", commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" } -- resize vim splits
   use { "tpope/vim-surround", commit = "aeb933272e72617f7c4d35e1f003be16836b948d" }
   use { "vim-scripts/ReplaceWithRegister", commit = "832efc23111d19591d495dc72286de2fb0b09345" } -- use "y<motion>" to yank to register and "gr<motion>" to replace with register
   use { "numToStr/Comment.nvim", commit = "d9cfae1059b62f7eacc09dba181efe4894e3b086" }
+
+  -- File explorer
+  use("nvim-tree/nvim-tree.lua")
+  use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
+  use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
