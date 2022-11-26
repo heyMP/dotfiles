@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use({ "tpope/vim-surround", commit = "aeb933272e72617f7c4d35e1f003be16836b948d" })
 	use({ "vim-scripts/ReplaceWithRegister", commit = "832efc23111d19591d495dc72286de2fb0b09345" }) -- use "y<motion>" to yank to register and "gr<motion>" to replace with register
 	use({ "numToStr/Comment.nvim", commit = "d9cfae1059b62f7eacc09dba181efe4894e3b086" })
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- File explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -97,6 +98,7 @@ return packer.startup(function(use)
 
 	-- Tabs
 	use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
+	use("moll/vim-bbye")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
