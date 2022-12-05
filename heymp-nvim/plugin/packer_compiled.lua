@@ -214,6 +214,11 @@ _G.packer_plugins = {
     path = "/Users/michael/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/Users/michael/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/michael/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",

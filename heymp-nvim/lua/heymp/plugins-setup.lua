@@ -58,6 +58,9 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
 	use({ "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" })
 
+	-- Projects
+	use("ahmedkhalf/project.nvim")
+
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim" })

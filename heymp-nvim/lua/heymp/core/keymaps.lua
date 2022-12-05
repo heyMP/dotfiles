@@ -23,10 +23,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<S-C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<S-C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -50,6 +50,12 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Quickfix --
+keymap("n", "<leader>co", "<cmd>copen<CR>")
+keymap("n", "<leader>cn", "<cmd>cnext<CR>")
+keymap("n", "<leader>cp", "<cmd>cprevious<CR>")
+keymap("n", "<leader>cc", "<cmd>cclose<CR>")
+
 -- Plugins --
 
 -- NvimTree
@@ -61,9 +67,13 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
+keymap("n", "<leader>fc", ":Telescope commands<CR>", opts)
+keymap("n", "<leader>fc", ":Telescope command_history<CR>", opts)
+keymap("n", "<leader>fh", ":Telescope command_history<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>grh", ":Gitsigns reset_hunk<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)

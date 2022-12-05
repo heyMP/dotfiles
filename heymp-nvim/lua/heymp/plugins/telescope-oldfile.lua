@@ -1,12 +1,12 @@
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local sorters = require("telescope.sorters")
+local builtin = require("telescope.builtin")
 
 local opts = {
-	finder = finders.new_table({ "1", "2", "3" }),
-	sorter = sorters.get_generic_fuzzy_sorter({}),
+	cwd_only = true,
 }
 
-local files = pickers.new(opts)
+local files = builtin.oldfiles(opts)
 
 files:find()
