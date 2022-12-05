@@ -1,3 +1,5 @@
 # ignore neovim that's installed with
 # https://github.com/LunarVim/nvim-basic-ide.git
 neovim
+**.log
+**/packer_compiled.lua

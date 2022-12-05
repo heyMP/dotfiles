@@ -64,7 +64,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "h",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -79,7 +79,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "j",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -94,7 +94,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "k",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
@@ -109,7 +109,7 @@ const rules: KarabinerRules[] = [
         from: {
           key_code: "l",
           modifiers: {
-            mandatory: ["left_control"],
+            mandatory: ["right_command"],
             optional: ["any"],
           },
         },
