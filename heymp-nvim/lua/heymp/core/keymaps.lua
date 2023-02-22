@@ -60,8 +60,11 @@ keymap("n", "<leader>cc", "<cmd>cclose<CR>")
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>=", ":NvimTreeResize +10<CR>", opts)
+keymap("n", "<leader>-", ":NvimTreeResize -10<CR>", opts)
 
 -- Telescope
+keymap("n", "<leader>t", ":Telescope<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
@@ -74,6 +77,8 @@ keymap("n", "<leader>fh", ":Telescope command_history<CR>", opts)
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>grh", ":Gitsigns reset_hunk<CR>", opts)
+keymap("n", "<leader>gnh", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gdt", ":Gitsigns diffthis<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
@@ -89,6 +94,10 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- LSP
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+keymap("n", "<leader>li", ":NullLsInfo<cr>", opts)
 
 -- vim maxizer
 keymap("n", "<leader>sm", ":MaximizerToggle<CR>")

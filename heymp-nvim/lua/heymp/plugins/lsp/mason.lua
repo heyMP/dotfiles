@@ -20,8 +20,6 @@ mason_lspconfig.setup({
 		"tsserver",
 		"html",
 		"cssls",
-		"sumneko_lua",
-		"emmit-ls",
 	},
 })
 
@@ -30,6 +28,5 @@ mason_null_ls.setup({
 		"prettier",
 		"stylua",
 		"eslint_d",
-		"emmit-ls",
 	},
 })
