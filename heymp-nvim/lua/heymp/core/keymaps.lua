@@ -60,8 +60,8 @@ keymap("n", "<leader>cc", "<cmd>cclose<CR>")
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>=", ":NvimTreeResize +10<CR>", opts)
-keymap("n", "<leader>-", ":NvimTreeResize -10<CR>", opts)
+keymap("n", "<leader>=", ":NvimTreeResize +5<CR>", opts)
+keymap("n", "<leader>-", ":NvimTreeResize -5<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>t", ":Telescope<CR>", opts)

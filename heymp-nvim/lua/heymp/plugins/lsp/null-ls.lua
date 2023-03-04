@@ -26,12 +26,7 @@ null_ls.setup({
 			--[[ end, ]]
 		}),
 		-- Disable diagnostics because it's interferring with formatting.
-		--[[ diagnostics.eslint_d.with({ -- js/ts linter ]]
-		--[[ 	-- only enable eslint if root has .eslintrc.js (not in youtube nvim video) ]]
-		--[[ 	condition = function(utils) ]]
-		--[[ 		return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else ]]
-		--[[ 	end, ]]
-		--[[ }), ]]
+		--[[ diagnostics.eslint_d, ]]
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
