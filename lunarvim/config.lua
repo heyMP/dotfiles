@@ -14,7 +14,7 @@ vim.opt.foldenable = false --[[ don't expand by default ]]
 lvim.log.level = 'info'
 lvim.format_on_save = {
   enabled = true,
-  pattern = '*.lua',
+  pattern = { '*.lua', "*.ts" },
   timeout = 1000,
 }
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -118,13 +118,13 @@ lvim.builtin.treesitter.auto_install = true
 --     args = { "--severity", "warning" },
 --   },
 -- }
--- local code_actions = require "lvim.lsp.null-ls.code_actions"
--- code_actions.setup {
---   {
---     exe = "eslint",
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+code_actions.setup {
+  {
+    exe = "eslint",
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
@@ -175,6 +175,25 @@ lvim.plugins = {
   },
   { 'junegunn/fzf' },
   { 'gabrielpoca/replacer.nvim' },
+  {
+    'VonHeikemen/fine-cmdline.nvim',
+    dependencies = {
+      { 'MunifTanjim/nui.nvim' }
+    },
+    config = function()
+      require "fine-cmdline".setup({
+        cmdline = {
+          prompt = '> '
+        },
+        popup = {
+          position = {
+            row = '50%'
+          }
+        }
+      })
+      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
+    end
+  }
 }
 
 -- Telescope
@@ -191,7 +210,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
     },
     extensions = {
       file_browser = {
-        -- theme = "ivy",
+        theme = "ivy",
         mappings = {
           -- ['i'] = {
           --   -- change all of the insert mappings to <C> due to special
@@ -207,9 +226,8 @@ lvim.builtin.telescope.on_config_done = function(telescope)
     }
   }
   pcall(telescope.load_extension, "file_browser")
+  lvim.builtin.which_key.mappings['E'] = { ':Telescope file_browser path=%:p:h select_buffer=true<CR>', 'File browser' }
 end
-
-lvim.builtin.which_key.mappings['E'] = { '<cmd>Telescope file_browser<cr>', 'File browser' }
 
 lvim.builtin.which_key.mappings['X'] = {
   name = 'Diagnostics',
