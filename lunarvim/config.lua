@@ -167,7 +167,7 @@ lvim.plugins = {
         filter = {
           fzf = {
             action_for = { ["ctrl-s"] = "split" },
-            extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+            extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", " " },
           },
         },
       })
@@ -183,7 +183,7 @@ lvim.plugins = {
     config = function()
       require "fine-cmdline".setup({
         cmdline = {
-          prompt = '> '
+          prompt = ' '
         },
         popup = {
           position = {
