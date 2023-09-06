@@ -148,39 +148,37 @@ bindkey '^ ' autosuggest-accept
 
 # # Load NVM async so it doesn't slow down zsh
 # # https://github.com/eudika/prezto/commit/40100534c1ab5e2303c598d7b4c0ac3cad689bfe 
-# path=("$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | sort -V | tail -n1)/bin/": $path)
-# # Load NVM lazily.
-# nvm() {
-#   unset nvm;
-#   # This line is very slow.
-#   source "$NVM_DIR/nvm.sh"
-#   nvm "$@"
-# }
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# place this after nvm initialization!
-# https://github.com/nvm-sh/nvm#zsh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+path=("$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | sort -V | tail -n1)/bin/": $path)
+# Load NVM lazily.
+nvm() {
+  unset nvm;
+  # This line is very slow.
+  source "$NVM_DIR/nvm.sh"
+  nvm "$@"
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
-export PATH="$HOME/.yarn/bin:$PATH"
+# # place this after nvm initialization!
+# # https://github.com/nvm-sh/nvm#zsh
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local node_version="$(nvm version)"
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   elif [ "$node_version" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# load-nvmrc
+
