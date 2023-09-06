@@ -39,6 +39,9 @@ lvim.keys.visual_mode['<M-j>'] = false
 
 -- -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings['W'] = { '<cmd>noautocmd w<cr>', 'Save without formatting' }
+lvim.builtin.project.patterns = {
+  '.git'
+}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
@@ -50,6 +53,27 @@ lvim.builtin.which_key.mappings['W'] = { '<cmd>noautocmd w<cr>', 'Save without f
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = 'dashboard'
+local buttons = {
+  opts = {
+    hl_shortcut = "Include",
+    spacing = 1,
+  },
+  entries = {
+    { "h", "󰓾  Harpoon",                           "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+    { "f", lvim.icons.ui.FindFile .. "  Find File",   "<CMD>Telescope find_files<CR>" },
+    { "n", lvim.icons.ui.NewFile .. "  New File",     "<CMD>ene!<CR>" },
+    { "p", lvim.icons.ui.Project .. "  Projects ",    "<CMD>Telescope projects<CR>" },
+    { "r", lvim.icons.ui.History .. "  Recent files", ":Telescope oldfiles <CR>" },
+    { "t", lvim.icons.ui.FindText .. "  Find Text",   "<CMD>Telescope live_grep<CR>" },
+    {
+      "c",
+      lvim.icons.ui.Gear .. "  Configuration",
+      "<CMD>edit " .. require("lvim.config"):get_user_config_path() .. " <CR>",
+    },
+    { "q", lvim.icons.ui.Close .. "  Quit", "<CMD>quit<CR>" },
+  },
+}
+lvim.builtin.alpha.dashboard.section.buttons = buttons;
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = 'left'
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -104,11 +128,11 @@ lvim.builtin.treesitter.auto_install = true
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "stylua" },
---   {
---     command = "prettier",
---     extra_args = { "--print-width", "100" },
---     filetypes = { "typescript", "typescriptreact" },
---   },
+-- {
+--   command = "prettier",
+--   extra_args = { "--print-width", "100" },
+--   filetypes = { "typescript", "typescriptreact" },
+-- },
 -- }
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
@@ -118,16 +142,17 @@ lvim.builtin.treesitter.auto_install = true
 --     args = { "--severity", "warning" },
 --   },
 -- }
-local code_actions = require "lvim.lsp.null-ls.code_actions"
-code_actions.setup {
-  {
-    exe = "eslint",
-    filetypes = { "typescript", "typescriptreact" },
-  },
-}
+-- local code_actions = require "lvim.lsp.null-ls.code_actions"
+-- code_actions.setup {
+--   {
+--     exe = "eslint",
+--     filetypes = { "typescript", "typescriptreact" },
+--   },
+-- }
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
+  { 'chentoast/marks.nvim' },
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
@@ -176,31 +201,22 @@ lvim.plugins = {
   { 'junegunn/fzf' },
   { 'gabrielpoca/replacer.nvim' },
   {
-    'VonHeikemen/fine-cmdline.nvim',
-    dependencies = {
-      { 'MunifTanjim/nui.nvim' }
-    },
+    'Wansmer/treesj',
+    keys = { '<space>m' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require "fine-cmdline".setup({
-        cmdline = {
-          prompt = ' '
-        },
-        popup = {
-          position = {
-            row = '50%'
-          }
-        }
-      })
-      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
-    end
-  }
+      require('treesj').setup({ --[[ your config ]] })
+    end,
+  },
+  { 'ThePrimeagen/harpoon' },
+  { 'ThePrimeagen/git-worktree.nvim' },
 }
 
 -- Telescope
 lvim.builtin.telescope.theme = 'center'
 lvim.builtin.telescope.on_config_done = function(telescope)
   local trouble = require('trouble.providers.telescope')
-  local fb_actions = require "telescope._extensions.file_browser.actions"
+  -- local fb_actions = require "telescope._extensions.file_browser.actions"
   telescope.setup {
     defaults = {
       mappings = {
@@ -227,6 +243,10 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   }
   pcall(telescope.load_extension, "file_browser")
   lvim.builtin.which_key.mappings['E'] = { ':Telescope file_browser path=%:p:h select_buffer=true<CR>', 'File browser' }
+  pcall(telescope.load_extension, "git_worktree")
+  lvim.builtin.which_key.mappings['s']['w'] = {
+    '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+    'File browser' }
 end
 
 lvim.builtin.which_key.mappings['X'] = {
@@ -249,15 +269,32 @@ lvim.builtin.which_key.mappings['Q'] = {
   s = { '<cmd>lua require("replacer").save()<cr>', 'replacer save' },
 }
 
+lvim.builtin.which_key.mappings['o'] = {
+  name = 'Harpoon Marks',
+  o = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', 'open Harpoon' },
+  t = { '<cmd>lua require("harpoon.mark").toggle_file()<cr>', 'toggle file' },
+  a = { '<cmd>lua require("harpoon.mark").add_file()<cr>', 'add file' },
+  r = { '<cmd>lua require("harpoon.mark").rm_file()<cr>', 'rm file' },
+  j = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', 'prev file' },
+  k = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', 'next file' },
+  c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'clear all marks' },
+}
 
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
 --   callback = function()
 --     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
+--     require("nvim-treesitter.highlight").attach(20, "bash")
 --   end,
 -- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.njk" },
+  command = "set filetype=html",
+})
+
+
+
 lvim.builtin.alpha.dashboard.section.header.val = {
   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡏⠠⢉⠒⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡊⠉⠒⠲⠤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠉⣹⢸⢳⡈⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
