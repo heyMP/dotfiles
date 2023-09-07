@@ -59,12 +59,9 @@ local buttons = {
     spacing = 1,
   },
   entries = {
-    { "h", "󰓾  Harpoon",                           "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
-    { "f", lvim.icons.ui.FindFile .. "  Find File",   "<CMD>Telescope find_files<CR>" },
-    { "n", lvim.icons.ui.NewFile .. "  New File",     "<CMD>ene!<CR>" },
-    { "p", lvim.icons.ui.Project .. "  Projects ",    "<CMD>Telescope projects<CR>" },
-    { "r", lvim.icons.ui.History .. "  Recent files", ":Telescope oldfiles <CR>" },
-    { "t", lvim.icons.ui.FindText .. "  Find Text",   "<CMD>Telescope live_grep<CR>" },
+    { "h", "󰓾  Harpoon",                        "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+    { "w", "  Worktrees ",                      "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>" },
+    { "p", lvim.icons.ui.Project .. "  Projects ", "<CMD>Telescope projects<CR>" },
     {
       "c",
       lvim.icons.ui.Gear .. "  Configuration",
@@ -209,7 +206,20 @@ lvim.plugins = {
     end,
   },
   { 'ThePrimeagen/harpoon' },
-  { 'ThePrimeagen/git-worktree.nvim' },
+  {
+    'ThePrimeagen/git-worktree.nvim',
+    config = function()
+      local Worktree = require('git-worktree')
+      Worktree.setup({
+        update_on_change_command = "NvimTreeOpen"
+      })
+      Worktree.on_tree_change(function(op, metadata)
+        if op == Worktree.Operations.Switch then
+          print(metadata.prev_path .. " -> " .. metadata.path)
+        end
+      end)
+    end
+  },
 }
 
 -- Telescope
@@ -244,9 +254,17 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "file_browser")
   lvim.builtin.which_key.mappings['E'] = { ':Telescope file_browser path=%:p:h select_buffer=true<CR>', 'File browser' }
   pcall(telescope.load_extension, "git_worktree")
+  lvim.builtin.which_key.mappings['g']['w'] = {
+    name = 'Worktrees',
+    m = { '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', 'Manage worktrees' },
+    -- Manage worktree additional options in telescope
+    -- <Enter> - switches to that worktree
+    -- <c-d> - deletes that worktree
+    -- <c-f> - toggles forcing of the next deletion
+    c = { '<cmd>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>', 'Create worktree' }
+  }
   lvim.builtin.which_key.mappings['s']['w'] = {
-    '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
-    'File browser' }
+    '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', 'Worktrees' }
 end
 
 lvim.builtin.which_key.mappings['X'] = {
