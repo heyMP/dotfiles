@@ -182,3 +182,10 @@ nvm() {
 # }
 # load-nvmrc
 
+
+# bun completions
+[ -s "/Users/michael/.bun/_bun" ] && source "/Users/michael/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
