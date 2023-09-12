@@ -4,3 +4,4 @@ neovim
 **.log
 **/packer_compiled.lua
 karabiner/automatic_backups
+lazy-lock.json
