@@ -1085,7 +1085,11 @@
             }
           ]
         }
+<<<<<<< HEAD
       ]
     }
   ]
+=======
+    ]
+>>>>>>> 866e898 (feat: adding rectangle config & lunarvim marks)
 }

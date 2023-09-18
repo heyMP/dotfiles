@@ -149,7 +149,15 @@ lvim.builtin.treesitter.auto_install = true
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
-  { 'chentoast/marks.nvim' },
+  {
+    'chentoast/marks.nvim',
+    config = function()
+      local marks = require 'marks'
+      marks.setup {
+        default_mappings = true
+      }
+    end
+  },
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
@@ -298,6 +306,8 @@ lvim.builtin.which_key.mappings['o'] = {
   c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'clear all marks' },
 }
 
+lvim.builtin.which_key.mappings['k'] = { '<cmd>ToggleTerm<cr>', 'toggleterm' }
+
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
@@ -310,7 +320,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.njk" },
   command = "set filetype=html",
 })
-
 
 
 lvim.builtin.alpha.dashboard.section.header.val = {
