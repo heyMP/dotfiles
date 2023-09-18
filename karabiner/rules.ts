@@ -320,7 +320,7 @@ fs.writeFileSync(
               },
               to: [
                 {
-                  key_code: "grave_accent_and_tilde",
+                  key_code: "caps_lock",
                 },
               ],
             },

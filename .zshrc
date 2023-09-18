@@ -1,5 +1,15 @@
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,12 +68,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles/zsh-custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Source global definitions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
+# if [ -f ~/.bashrc ]; then
+# 	. ~/.bashrc
+# fi
 # Source global definitions
 if [ -f ~/.bash_profile ]; then
 	. ~/.bash_profile
@@ -147,7 +156,7 @@ bindkey '^ ' autosuggest-accept
 ## test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # # Load NVM async so it doesn't slow down zsh
-# # https://github.com/eudika/prezto/commit/40100534c1ab5e2303c598d7b4c0ac3cad689bfe 
+# # https://github.com/eudika/prezto/commit/40100534c1ab5e2303c598d7b4c0ac3cad689bfe
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -189,3 +198,5 @@ nvm() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

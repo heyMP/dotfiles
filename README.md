@@ -17,74 +17,41 @@ Install nvim via brew or preferred method.
 Based on lunarvim's nvim from scratch repo
 https://github.com/LunarVim/Neovim-from-scratch
 
+Install the following packages with Homebrew
+
+```bash
+brew install zsh
+brew install zsh-autosuggestions
+brew install tmux
+brew install neovim
+brew install git
+brew install git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mpotter/.zprofile\n    eval "$(/opt/homebrew/bin/brew shellenv)"
+brew install zsh-autosuggestions
+brew reinstall zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+brew install fzf\n\n# To install useful key bindings and fuzzy completion:\n$(brew --prefix)/opt/fzf/install
+brew install z
+brew install lazygit
+```
+
 
 ## Create Symlinks
-```
+```bash
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.viminfo ~/.viminfo
-ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
+ln -sf ~/dotfiles/zsh-custom ~/.oh-my-zsh/custom
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
-ln -sf ~/dotfiles/oh-my-zsh-custom ~/dotfiles/.oh-my-zsh/custom
 ```
 
-## Add Server Variables
-```
-echo 'ZSH_SERVER_NAME="MYSERVER"
-ZSH_SERVER_COLOR="yellow"
-' > ~/.zshenv
-source ~/.zshenv
-source ~/.zshrc
-```
+## Install tmux plugins
 
-## Install DrupalVim
-```
-drush dl vimrc
-ln -sf ~/.drush/vimrc/bundle/vim-plugin-for-drupal ~/.vim/bundle/vim-plugin-for-drupal
-```
+Install the tmux plugins with tmp
 
-## Load helper tags
-```
-vim
-:Helptags
-:help drupal
-```
-
-## Insall Zsh and make it the default shell
-```
-yum install zsh
-chsh -s /bin/zsh
-```
-
-## Install zsh on Ubuntu
-```
-apt-get install zsh
-zsh
-```
-
-## Install tmux
-```
-yum install tmux
-```
-
-## Install fonts
-
-From within the `.vim/bundle/fonts` directiory run
-```
-bash install.sh
-```
-
-## Updating Submodules
-```
-~/dotfiles
-git submodule update --init --recursive
-```
-
-## httpie
-
-If doing REST development install httpie from:
-https://github.com/jkbrzt/httpie
+1. Enter into the tmux server
+2. Press prefix + I (capital i, as in Install) to fetch the plugin.
