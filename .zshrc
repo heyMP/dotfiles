@@ -10,13 +10,12 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 #
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dracula"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -115,6 +114,7 @@ export TERM=xterm-256color
 if command -v brew >/dev/null 2>&1; then
     # Load rupa's z if installed
     [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Keep computer awake for one hour
