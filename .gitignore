@@ -5,3 +5,4 @@ neovim
 **/packer_compiled.lua
 karabiner/automatic_backups
 lazy-lock.json
+.DS_Store
