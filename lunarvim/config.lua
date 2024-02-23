@@ -59,8 +59,8 @@ local buttons = {
     spacing = 1,
   },
   entries = {
-    { "h", "󰓾  Harpoon",                        "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
-    { "w", "  Worktrees ",                      "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>" },
+    { "h", "󰓾  Harpoon", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+    { "w", "  Worktrees ", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>" },
     { "p", lvim.icons.ui.Project .. "  Projects ", "<CMD>Telescope projects<CR>" },
     {
       "c",
