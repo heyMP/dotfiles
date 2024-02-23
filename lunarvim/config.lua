@@ -306,9 +306,8 @@ lvim.builtin.which_key.mappings['o'] = {
   c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'clear all marks' },
 }
 
-lvim.builtin.which_key.mappings['k'] = { '<cmd>ToggleTerm<cr>', 'toggleterm' }
-
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
+--
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
 --   callback = function()
