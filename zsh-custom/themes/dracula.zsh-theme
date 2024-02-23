@@ -29,7 +29,7 @@ else
   local server_env_name="%m"
 fi
 
-PROMPT='${ret_status} ${server_env_color} ${server_env_name} as %n %{$fg_bold[green]%}%p %{$fg_bold[blue]%}%c $(git_prompt_info)% %{$reset_color%} ${EPS1}
+PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg_bold[blue]%}%c $(git_prompt_info)% %{$reset_color%} ${EPS1}
    '
 
 ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
