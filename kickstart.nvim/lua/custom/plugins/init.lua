@@ -3,6 +3,14 @@
 --
 -- See the kickstart.nvim README for more information
 
+-- vim.keymap.set('n', '<C-q>', ':bdelete<CR>')
+-- vim.keymap.set('n', '<S-h>', ':bprevious<CR>')
+-- vim.keymap.set('n', '<S-l>', ':bnext<CR>')
+
+vim.keymap.set('n', '<leader>l', '<cmd>LazyGit<CR>', { desc = '[L]azyGit' })
+vim.keymap.set('n', '<leader>q', '<cmd>confirm q<CR>', { desc = '[Q]uit' })
+vim.keymap.set('n', '<leader>w', '<cmd>confirm w<CR>', { desc = '[W]rite' })
+
 return {
   {
     'chentoast/marks.nvim',
@@ -10,18 +18,37 @@ return {
       local marks = require 'marks'
       marks.setup {
         default_mappings = true,
+        mappings = {
+          next = '<C-n>',
+          prev = '<C-p>',
+        },
       }
     end,
   },
   { 'junegunn/fzf' },
   {
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  },
-  {
     'kdheepak/lazygit.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
+  },
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      local oil = require 'oil'
+      oil.setup {
+        delete_to_trash = true,
+      }
+
+      vim.keymap.set('n', '<leader>f', '<cmd>Oil<CR>', { desc = '[F]ile browser' })
+    end,
+  },
+  { 'folke/zen-mode.nvim' },
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end,
   },
 }
