@@ -3,13 +3,11 @@
 --
 -- See the kickstart.nvim README for more information
 
--- vim.keymap.set('n', '<C-q>', ':bdelete<CR>')
--- vim.keymap.set('n', '<S-h>', ':bprevious<CR>')
--- vim.keymap.set('n', '<S-l>', ':bnext<CR>')
-
 vim.keymap.set('n', '<leader>l', '<cmd>LazyGit<CR>', { desc = '[L]azyGit' })
 vim.keymap.set('n', '<leader>q', '<cmd>confirm q<CR>', { desc = '[Q]uit' })
 vim.keymap.set('n', '<leader>w', '<cmd>confirm w<CR>', { desc = '[W]rite' })
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>')
+vim.keymap.set('n', '<S-l>', ':bnext<CR>')
 
 return {
   {
@@ -40,7 +38,7 @@ return {
         delete_to_trash = true,
       }
 
-      vim.keymap.set('n', '<leader>f', '<cmd>Oil<CR>', { desc = '[F]ile browser' })
+      vim.keymap.set('n', '<leader>fo', '<cmd>Oil<CR>', { desc = '[F]ile browser' })
     end,
   },
   { 'folke/zen-mode.nvim' },

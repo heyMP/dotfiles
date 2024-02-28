@@ -1,0 +1,19 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+
+return {
+  'nvim-tree/nvim-tree.lua',
+  config = function()
+    local api = require "nvim-tree.api"
+    require("nvim-tree").setup()
+
+    vim.keymap.set('n', '<leader>t', function()
+      api.tree.toggle({ path = "<args>", find_file = true, update_root = false, focus = true, })
+    end, { desc = 'Nvim [T]ree toggle' })
+  end
+}

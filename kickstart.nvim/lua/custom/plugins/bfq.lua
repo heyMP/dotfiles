@@ -14,10 +14,6 @@ local qf_toggle = function()
   end
 end
 
-vim.keymap.set('n', '<C-q>', qf_toggle, { desc = '[Q]uickfix toggle' })
-vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>', { desc = 'Quickfix [N]ext' })
-vim.keymap.set('n', '<C-p>', '<cmd>cprevious<CR>', { desc = 'Quickfix [P]revious' })
-
 return {
   'kevinhwang91/nvim-bqf',
   event = { 'BufRead', 'BufNew' },
@@ -42,5 +38,9 @@ return {
         },
       },
     }
+
+    vim.keymap.set('n', '<C-q>', qf_toggle, { desc = '[Q]uickfix toggle' })
+    -- vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>', { desc = 'Quickfix [N]ext' })
+    -- vim.keymap.set('n', '<C-p>', '<cmd>cprevious<CR>', { desc = 'Quickfix [P]revious' })
   end,
 }

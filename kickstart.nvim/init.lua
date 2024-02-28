@@ -232,7 +232,7 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',    opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `conform.nvim`. This is equivalent to:
@@ -241,6 +241,29 @@ require('lazy').setup({
   -- See `:help conform` to understand what the configuration keys do
   { -- Autoformat
     'stevearc/conform.nvim',
+    config = function()
+      -- if format_on_save is a function, it will be called during BufWritePre
+      require("conform").setup({
+        format_on_save = function(bufnr)
+          -- Disable autoformat on certain filetypes
+          local ignore_filetypes = { "html" }
+          if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+            return
+          end
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+          -- Disable autoformat for files in a certain path
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          if bufname:match("/node_modules/") then
+            return
+          end
+          -- ...additional logic...
+          return { timeout_ms = 500, lsp_fallback = true }
+        end,
+      })
+    end,
     opts = {
       notify_on_error = false,
       format_on_save = {
@@ -274,7 +297,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
     config = function() -- This is the function that runs, AFTER loading
@@ -692,7 +715,7 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<TAB>'] = cmp.mapping.confirm { select = true },
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -747,7 +770,7 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
