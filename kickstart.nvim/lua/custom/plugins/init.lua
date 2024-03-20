@@ -31,17 +31,6 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
-  {
-    'stevearc/oil.nvim',
-    config = function()
-      local oil = require 'oil'
-      oil.setup {
-        delete_to_trash = true,
-      }
-
-      vim.keymap.set('n', '<leader>fo', '<cmd>Oil<CR>', { desc = '[F]ile browser' })
-    end,
-  },
   { 'folke/zen-mode.nvim' },
   {
     'goolord/alpha-nvim',
@@ -50,4 +39,15 @@ return {
       require('alpha').setup(require('alpha.themes.startify').config)
     end,
   },
+  {
+    'echasnovski/mini.nvim',
+    config = function()
+      local MiniFiles = require('mini.files');
+      local open = function()
+        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      end
+      MiniFiles.setup()
+      vim.keymap.set('n', '<leader>fo', open, { desc = '[F]ile [O]pen' })
+    end,
+  }
 }
