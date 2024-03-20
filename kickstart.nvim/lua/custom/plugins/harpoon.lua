@@ -12,7 +12,7 @@ return {
       { desc = '[H]arpoon: [N]ext file' })
     vim.keymap.set('n', '<leader>hp', '<cmd>lua require("harpoon.ui").nav_prev()<cr>',
       { desc = '[H]arpoon: [P]revious file' })
-    -- vim.keymap.set('n', '<S-h>', '<cmd>lua require("harpoon.ui").nav_prev()<cr>')
-    -- vim.keymap.set('n', '<S-l>', '<cmd>lua require("harpoon.ui").nav_next()<cr>')
+    vim.keymap.set('n', '<S-h>', '<cmd>lua require("harpoon.ui").nav_prev()<cr>')
+    vim.keymap.set('n', '<S-l>', '<cmd>lua require("harpoon.ui").nav_next()<cr>')
   end,
 }
