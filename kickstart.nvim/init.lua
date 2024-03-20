@@ -246,7 +246,7 @@ require('lazy').setup({
       require("conform").setup({
         format_on_save = function(bufnr)
           -- Disable autoformat on certain filetypes
-          local ignore_filetypes = { "html" }
+          local ignore_filetypes = { "html", "js", "ts" }
           if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
             return
           end
