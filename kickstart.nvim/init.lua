@@ -232,7 +232,7 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',    opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `conform.nvim`. This is equivalent to:
@@ -242,11 +242,22 @@ require('lazy').setup({
   { -- Autoformat
     'stevearc/conform.nvim',
     config = function()
+      vim.api.nvim_create_user_command('Format', function(args)
+        local range = nil
+        if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+            start = { args.line1, 0 },
+            ['end'] = { args.line2, end_line:len() },
+          }
+        end
+        require('conform').format { async = true, lsp_fallback = true, range = range }
+      end, { range = true })
       -- if format_on_save is a function, it will be called during BufWritePre
-      require("conform").setup({
+      require('conform').setup {
         format_on_save = function(bufnr)
           -- Disable autoformat on certain filetypes
-          local ignore_filetypes = { "html", "js", "ts" }
+          local ignore_filetypes = { 'html' }
           if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
             return
           end
@@ -256,30 +267,19 @@ require('lazy').setup({
           end
           -- Disable autoformat for files in a certain path
           local bufname = vim.api.nvim_buf_get_name(bufnr)
-          if bufname:match("/node_modules/") then
+          if bufname:match '/node_modules/' then
             return
           end
           -- ...additional logic...
           return { timeout_ms = 500, lsp_fallback = true }
         end,
-      })
+        formatters_by_ft = {
+          lua = { 'stylua' },
+          javascript = { 'eslint_d' },
+          typescript = { 'eslint_d' },
+        },
+      }
     end,
-    opts = {
-      notify_on_error = false,
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
-      },
-    },
   },
 
   -- NOTE: Plugins can also be configured to run lua code when they are loaded.
@@ -297,7 +297,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
     config = function() -- This is the function that runs, AFTER loading
@@ -545,7 +545,7 @@ require('lazy').setup({
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- Show the signature of the function you're currently completing.
-          map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+          -- map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
@@ -775,7 +775,7 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'folke/tokyonight.nvim',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
