@@ -11,7 +11,10 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+    { '\\', ':Neotree last reveal toggle<CR>', { desc = 'NeoTree reveal' } },
+    { '<leader>\\t', ':Neotree reveal<CR>', { desc = 'NeoTree tree' } },
+    { '<leader>\\g', ':Neotree git_status reveal<CR>', { desc = 'NeoTree git status' } },
+    { '<leader>\\b', ':Neotree buffers reveal<CR>', { desc = 'NeoTree buffers' } },
   },
   opts = {
     filesystem = {
