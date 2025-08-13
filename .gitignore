@@ -6,3 +6,4 @@ neovim
 karabiner/automatic_backups
 lazy-lock.json
 .DS_Store
+.gitconfig

@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 # Source global definitions
 if [ -f ~/.bash_profile ]; then
-	. ~/.bash_profile
+  . ~/.bash_profile
 fi
 
 # You may need to manually set your language environment
@@ -112,9 +112,9 @@ export TERM=xterm-256color
 # z
 # Move next only if `homebrew` is installed
 if command -v brew >/dev/null 2>&1; then
-    # Load rupa's z if installed
-    [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # Load rupa's z if installed
+  [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Keep computer awake for one hour
@@ -163,7 +163,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 path=("$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | sort -V | tail -n1)/bin/": $path)
 # Load NVM lazily.
 nvm() {
-  unset nvm;
+  unset nvm
   # This line is very slow.
   source "$NVM_DIR/nvm.sh"
   nvm "$@"
@@ -191,7 +191,6 @@ nvm() {
 # }
 # load-nvmrc
 
-
 # bun completions
 [ -s "/Users/michael/.bun/_bun" ] && source "/Users/michael/.bun/_bun"
 
@@ -199,4 +198,16 @@ nvm() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# go air
+export PATH=$PATH:$(go env GOPATH)/bin
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+jwtd() {
+    if [[ -x $(command -v jq) ]]; then
+         jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
+         echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
+    fi
+}
+alias heymp="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+. "/Users/mpotter/.deno/env"
